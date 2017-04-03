@@ -47,4 +47,19 @@ Let us first examine the code with some annotations:
 	 17:  48 89 4c d0 10 		mov 	%rcx, 0x10(%rax, %rdx, 8)	## Store n
 
 ```
+Observe that the mov instruct on 10: performs an 8 byte read to dereference ap->idx. So the element idx in a_struct is a long and therefore the struct has an 8 byte alignment requirement.
+
+Let us say that a struct is A bytes, and CNT is C. The code to retrieve bp->last references offset 0x120, or 288. We can therefore see that the layout of b struct must consist of 4 bytes for element first, 4 bytes of padding, 280 bytes for array of a, 4 bytes for last, and 4 bytes of additional padding. We can therefore conclude that C · A = 280.
+
+Let us say that pointer bp has value p. Then in retrieving ap->idx (line 6), the program references address p + 8 + 40i,implying that A = 40,and therefore C = 7.
+
 Answers to the parts in problem 2 are:
+
+- CNT = 7
+
+```
+	typedef struct {
+		long idx;
+		long x[4];
+	} a_struct;
+```
