@@ -51,7 +51,7 @@ Observe that the mov instruct on 10: performs an 8 byte read to dereference ap->
 
 Let us say that a struct is A bytes, and CNT is C. The code to retrieve bp->last references offset 0x120, or 288. We can therefore see that the layout of b struct must consist of 4 bytes for element first, 4 bytes of padding, 280 bytes for array of a, 4 bytes for last, and 4 bytes of additional padding. We can therefore conclude that C · A = 280.
 
-Let us say that pointer bp has value p. Then in retrieving ap->idx (line 6), the program references address p + 8 + 40i,implying that A = 40,and therefore C = 7.
+Let us say that pointer bp has value p. Then in retrieving ap->idx (line 6), the program references address p + 8 + 40i, implying that A = 40,and therefore C = 7.
 
 Answers to the parts in problem 2 are:
 
