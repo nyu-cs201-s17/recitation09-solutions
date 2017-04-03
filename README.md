@@ -38,7 +38,7 @@ Let us first examine the code with some annotations:
 	# i in %rdi, bp in %rsi
 
 	0000000000000000 <test>:
-	  0:  8b 8e 20 01 00 00 	mov 	0x120(%rsi), %ecx		*Get bp->last*
+	  0:  8b 8e 20 01 00 00 	mov 	0x120(%rsi), %ecx		`*`Get bp->last`*`
 	  6:  03 0e			add 	(%rsi), %ecx			*Add bp->first*
 	  8:  48 8d 04 bf 		lea 	(%rdi, %rdi, 4), %rax
 	  c:  48 8d 04 c6 		lea 	(%rsi, %rax, 8), %rax
