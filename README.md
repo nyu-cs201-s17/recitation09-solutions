@@ -38,13 +38,13 @@ Let us first examine the code with some annotations:
 	# i in %rdi, bp in %rsi
 
 	0000000000000000 <test>:
-	  0:  8b 8e 20 01 00 00 	mov 	0x120(%rsi), %ecx		##Get bp->last
-	  6:  03 0e			add 	(%rsi), %ecx			##Add bp->first
+	  0:  8b 8e 20 01 00 00 	mov 	0x120(%rsi), %ecx		## Get bp->last
+	  6:  03 0e			add 	(%rsi), %ecx			## Add bp->first
 	  8:  48 8d 04 bf 		lea 	(%rdi, %rdi, 4), %rax
 	  c:  48 8d 04 c6 		lea 	(%rsi, %rax, 8), %rax
-	 10:  48 8b 50 08 		mov 	0x8(%rax), %rdx			##Get ap->idx
-	 14:  48 63 c9 			movslq	%ecx, %rcx			##Sign extend n
-	 17:  48 89 4c d0 10 		mov 	%rcx, 0x10(%rax, %rdx, 8)	##Store n
+	 10:  48 8b 50 08 		mov 	0x8(%rax), %rdx			## Get ap->idx
+	 14:  48 63 c9 			movslq	%ecx, %rcx			## Sign extend n
+	 17:  48 89 4c d0 10 		mov 	%rcx, 0x10(%rax, %rdx, 8)	## Store n
 
 ```
 Answers to the parts in problem 2 are:
